@@ -1,0 +1,23 @@
+node('master') {
+  stage('Workspace Cleanup') {
+          deleteDir()
+        }
+  stage('Get Source Code from Git') {
+        checkout([$class: 'GitSCM',
+        branches: [[name: '*/master']],
+        doGenerateSubmoduleConfigurations: false,
+        extensions: [],
+        submoduleCfg: [],
+        userRemoteConfigs: [[url: 'https://github.com/cloudfoundry-samples/cf-sample-app-spring.git']]])
+      }
+  stage('Push to Dev PCF') {
+        pushToCloudFoundry cloudSpace: 'development',
+        credentialsId: '72ec5f04-2b89-4bc3-a2d9-58d69ca40bd3',
+        organization: 'zhouhua',
+        target: 'https://api.run.pivotal.io'
+        }
+}
+
+
+
+
