@@ -1,17 +1,59 @@
 node('master') {
-  stage('Workspace Cleanup') {
-          deleteDir()
-        }
-  stage('Get Source Code from Git') {
-        checkout([$class: 'GitSCM',
-        branches: [[name: '*/master']],
-        doGenerateSubmoduleConfigurations: false,
-        extensions: [],
-        submoduleCfg: [],
-        userRemoteConfigs: [[url: 'https://github.com/zking2000/tw-code.git']]])
-      }
+	stage('Workspace Cleanup') {
+         deleteDir()
+    }	
+    def mvnHome = tool 'M3'
+	env.PATH = "${mvnHome}/bin:${env.PATH}"
+
+	stage('Pull codes from Git') {
+        checkout([$class: 'GitSCM', 
+		branches: [[name: '*/master']], 
+		doGenerateSubmoduleConfigurations: false, 
+		extensions: [], gitTool: 'GIT_linux-1.9.1', 
+		submoduleCfg: [], 
+		userRemoteConfigs: [[credentialsId: '<Valid Git Credentials>', 
+		url: '<Valid Git address>']]])
+		properties([[$class: 'RebuildSettings', 
+		autoRebuild: false, 
+		rebuildDisabled: false], 
+		pipelineTriggers([pollSCM('H/15 * * * *')])])
+    }
+	stage('Java Code Package') {
+		sh 'mvn clean package'
+    }
+	stage('Static Asset Package') {
+		sh 'zip -qr static_asset.zip <Folder for storing images and stylesheet>'
+    }
+	stage('Transfer artifacts to ansible staging server') {
+		sh '''scp static_asset.zip <Ansible staging server IP>:/tmp
+		scp companyNews.war <Ansible staging server IP>:/tmp'''
+    }
+	stage ('Archive Artifact') {
+		archiveArtifacts '**/target/*.war'
+	}
+	stage('Execute ansible playbook on server') {
+		sh '''#!/bin/bash
+		tower_host=<Ansible Tower host IP>
+		tower_user=<Valid Username>
+		tower_passwd=<Valid Password>
+		job_template_id=1323
+		curl -f -k -H \'Content-Type: application/json\' --user ${tower_user}:${tower_passwd} -X POST ${tower_host}/api/v1/job_templates/1323/launch/'''
+	}
+	stage('Distribute Notification mail to Master') {
+        emailext attachLog: true, 
+		body: '''Hi Master,
+		Your $BUILD_NUMBER of $PROJECT_NAME is $BUILD_STATUS. Please check detail info as below:
+		===================================
+		Project Name: $PROJECT_NAME
+		Build Number: $BUILD_NUMBER
+		Build Status: $BUILD_STATUS
+		Trigger: ${CAUSE}
+		Build Log: ${BUILD_URL}console
+		URL: $BUILD_URL
+		===================================''', 
+		subject: 'NO_REPLY: $BUILD_NUMBER of $PROJECT_NAME is $BUILD_STATUS', 
+		to: '<Email Address>'
+    }
 }
-
-
 
 
