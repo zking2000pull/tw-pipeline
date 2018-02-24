@@ -21,9 +21,6 @@ RUN echo " <role rolename=\"admin-gui\"/>" >> ./var/tmp/tomcat/apache-tomcat-7.0
 RUN echo " <user username=\"admin\" password=\"admin\" roles=\"manager-gui,admin-gui\"/>" >> ./var/tmp/tomcat/apache-tomcat-7.0.85/conf/tomcat-users.xml
 RUN echo "</tomcat-users>" >> ./var/tmp/tomcat/apache-tomcat-7.0.85/conf/tomcat-users.xml
 RUN sed -i /^$/d /var/tmp/tomcat/apache-tomcat-7.0.85/conf/tomcat-users.xml
-ENV JAVA_HOME /var/tmp/jdk/jdk1.8.0_161
-ENV CATALINA_HOME /var/tmp/tomcat/apache-tomcat-7.0.85
-ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin
 EXPOSE 8080
 EXPOSE 80
 CMD ["./var/tmp/tomcat/apache-tomcat-7.0.85/bin/catalina.sh","run"] && exec /usr/sbin/apachectl -D FOREGROUND
