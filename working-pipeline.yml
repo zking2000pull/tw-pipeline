@@ -21,7 +21,7 @@ node('master') {
           sh 'zip -qr static_asset.zip static_asset.html'
     }
     stage('Docker Build') {
-          sh 'docker build -t zhouhua/webapps:3.0 -f /Users/StephenChou/Desktop/Apps/TW/Workspace/dockerfile'
+          sh 'docker build docker build github.com/zking2000/dockerfile/Dockerfile -t zhouhua/webapps:3.0'
     }
     stage('Docker Run') {
               sh 'docker run -it -p 10022:22 --name=webapps zhouhua/webapp:3.0'
