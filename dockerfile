@@ -2,6 +2,11 @@ FROM centos
 MAINTAINER zhouhua "3065482@qq.com"
 RUN yum update -y
 RUN yum install -y wget
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+wget http://mirrors.163.com/.help/CentOS6-Base-163.repo /etc/yum.repos.d/
+mv /etc/yum.repos.d/CentOS6-Base-163.repo /etc/yum.repos.d/CentOS-Base.repo
+yum clean all
+yum makecache
 RUN mkdir /var/tmp/jdk
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie"  -P /var/tmp/jdk http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
 RUN tar xzf /var/tmp/jdk/jdk-8u111-linux-x64.tar.gz -C /var/tmp/jdk && rm -rf /var/tmp/jdk/jdk-8u111-linux-x64.tar.gz
