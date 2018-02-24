@@ -28,7 +28,7 @@ node('master') {
               docker rm webapps'''
         }
     stage('Docker Run') {
-          sh 'docker run -d -p 10022:22 --name=webapps zhouhua/webapps:3.0'
+          sh 'docker run -d -p 10022:22 -p 12345:8080 -p 12356:80 --name=webapps zhouhua/webapps:3.0'
     }
 }
 
