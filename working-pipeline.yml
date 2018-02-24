@@ -24,7 +24,8 @@ node('master') {
           sh 'docker build github.com/zking2000/dockerfile -t zhouhua/webapps:3.0'
     }
     stage('Docker Run Readiness') {
-              sh 'docker rm webapps'
+              sh '''docker stop webapps
+              docker rm webapps'''
         }
     stage('Docker Run') {
           sh 'docker run -d -p 10022:22 --name=webapps zhouhua/webapps:3.0'
