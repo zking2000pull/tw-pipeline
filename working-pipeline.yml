@@ -17,6 +17,9 @@ node('master') {
     stage('Static Asset package') {
           sh 'zip -qr static_asset.zip static_asset.html'
     }
+    stage('list files') {
+          sh 'ls -altrh'
+    }
 }
 
 
