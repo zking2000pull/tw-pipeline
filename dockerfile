@@ -20,3 +20,5 @@ docker build -t tomcat .
 
 
 docker run -it -p 12345:8080 --name=tomcat-test  tomcat
+
+http://blog.csdn.net/bingoxubin/article/details/78720976
