@@ -2,7 +2,7 @@ node('master') {
 	stage('Workspace Cleanup') {
          deleteDir()
     }
-    stage('Checkout') {
+    stage('Git Checkout') {
           checkout([$class: 'GitSCM',
           branches: [[name: '*/master']],
           doGenerateSubmoduleConfigurations: false,
@@ -11,8 +11,11 @@ node('master') {
           submoduleCfg: [],
           userRemoteConfigs: [[url: 'https://github.com/zking2000/tw-code2.git']]])
     }
-    stage('Build') {
+    stage('Code Build') {
           sh 'mvn clean package'
+    }
+    stage('Static Asset package') {
+          sh 'zip -qr static_asset.zip static_asset.html'
     }
 }
 
