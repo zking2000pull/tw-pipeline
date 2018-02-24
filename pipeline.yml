@@ -8,14 +8,8 @@ node('master') {
         doGenerateSubmoduleConfigurations: false,
         extensions: [],
         submoduleCfg: [],
-        userRemoteConfigs: [[url: 'https://github.com/cloudfoundry-samples/cf-sample-app-spring.git']]])
+        userRemoteConfigs: [[url: 'https://github.com/zking2000/tw-code.git']]])
       }
-  stage('Push to Dev PCF') {
-        pushToCloudFoundry cloudSpace: 'development',
-        credentialsId: '72ec5f04-2b89-4bc3-a2d9-58d69ca40bd3',
-        organization: 'zhouhua',
-        target: 'https://api.run.pivotal.io'
-        }
 }
 
 
