@@ -14,6 +14,18 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checkout'
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'GIT_linux-1.9.1', submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jglick/simple-maven-project-with-tests.git']]])
+                checkout([$class: 'GitSCM',
+                branches: [[name: '*/master']],
+                doGenerateSubmoduleConfigurations: false,
+                extensions: [],
+                gitTool: 'GIT_linux-1.9.1',
+                submoduleCfg: [],
+                userRemoteConfigs: [[url: 'https://github.com/jglick/simple-maven-project-with-tests.git']]])
             }
         }
+        stage('Build') {
+                    steps {
+                        echo 'Building'
+                        sh 'mvn clean package'
+                    }
+                }
