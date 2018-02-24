@@ -14,6 +14,9 @@ node('master') {
     stage('Code Build') {
           sh 'mvn clean package'
     }
+    stage('Code Test') {
+          sh 'mvn clean test'
+    }
     stage('Static Asset package') {
           sh 'zip -qr static_asset.zip static_asset.html'
     }
