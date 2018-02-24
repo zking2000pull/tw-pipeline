@@ -9,7 +9,7 @@ node('master') {
           extensions: [],
           gitTool: 'GIT_linux-1.9.1',
           submoduleCfg: [],
-          userRemoteConfigs: [[url: 'https://github.com/jglick/simple-maven-project-with-tests.git']]])
+          userRemoteConfigs: [[url: 'https://github.com/zking2000/tw-code2.git']]])
     }
     stage('Build') {
           sh 'mvn clean package'
