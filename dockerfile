@@ -23,7 +23,7 @@ RUN echo "</tomcat-users>" >> ./var/tmp/tomcat/apache-tomcat-7.0.85/conf/tomcat-
 RUN sed -i /^$/d /var/tmp/tomcat/apache-tomcat-7.0.85/conf/tomcat-users.xml
 EXPOSE 8080
 EXPOSE 80
-CMD ["./var/tmp/tomcat/apache-tomcat-7.0.85/bin/catalina.sh","run"] && exec /usr/sbin/apachectl -D FOREGROUND
+    CMD ["./var/tmp/tomcat/apache-tomcat-7.0.85/bin/catalina.sh","run"] && exec /usr/sbin/apachectl -D FOREGROUND
 
 
 

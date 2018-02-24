@@ -113,3 +113,14 @@ pipeline {
             ENV JAVA_HOME /var/tmp/jdk/jdk1.8.0_161
             ENV CATALINA_HOME /var/tmp/tomcat/apache-tomcat-7.0.85
             ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin
+
+
+            stage('Code Deployment') {
+                      ansiColor('xterm') {
+                          ansiblePlaybook(
+                          playbook: '/Users/StephenChou/Desktop/Apps/TW/Workspace/webapps.yaml',
+                          inventory: '/Users/StephenChou/Desktop/Apps/TW/Workspace/inventory.ini',
+                          credentialsId: '/Users/StephenChou/.ssh/ssh_host_rsa_key',
+                          colorized: true)
+                      }
+                }

@@ -21,24 +21,16 @@ node('master') {
           sh 'zip -qr static_asset.zip static_asset.html'
     }
     stage('Docker Build') {
-          sh 'docker build github.com/zking2000/dockerfile -t zhouhua/webapps:3.0'
+          sh 'docker build github.com/zking2000/dockerfile -t zhouhua/webapps:4.0'
     }
     stage('Docker Run Readiness') {
               sh '''docker stop webapps
               docker rm webapps'''
         }
     stage('Docker Run') {
-          sh 'docker run -d -p 10022:22 -p 12345:8080 -p 12356:80 --name=webapps zhouhua/webapps:3.0'
+          sh 'docker run -d -p 12345:8080 --name=webapps zhouhua/webapps:3.0'
     }
-    stage('Code Deployment') {
-          ansiColor('xterm') {
-              ansiblePlaybook(
-              playbook: '/Users/StephenChou/Desktop/Apps/TW/Workspace/webapps.yaml',
-              inventory: '/Users/StephenChou/Desktop/Apps/TW/Workspace/inventory.ini',
-              credentialsId: '/Users/StephenChou/.ssh/ssh_host_rsa_key',
-              colorized: true)
-          }
-    }
+
 }
 
 
