@@ -91,3 +91,15 @@ pipeline {
         }
     }
 }
+
+
+
+    stage('Code Deployment') {
+          ansiColor('xterm') {
+              ansiblePlaybook(
+                  playbook: '/Users/StephenChou/Desktop/Apps/TW/Workspace/webapps.yaml',
+                  inventory: '/Users/StephenChou/Desktop/Apps/TW/Workspace/inventory.ini',
+                  credentialsId: '/Users/StephenChou/.ssh/ssh_host_rsa_key',
+                  colorized: true)
+          }
+    }
