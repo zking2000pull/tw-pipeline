@@ -13,3 +13,10 @@ ENV CATALINA_HOME /var/tmp/tomcat/apache-tomcat-8.5.8
 ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin
 EXPOSE 8080
 CMD ["./var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh","run"] && tail -f /var/tmp/tomcat/apache-tomcat-8.5.8/logs/catalina.out
+
+
+
+docker build -t tomcat .
+
+
+docker run -it -p 12345:8080 --name=tomcat-test  tomcat
