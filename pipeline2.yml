@@ -1,0 +1,93 @@
+pipeline {
+    agent any
+		node {
+			def mvnHome = tool 'M3.2.3'
+			def jdk77 = tool 'jdk1.7'
+			env.PATH = "${jdk77}/bin:${mvnHome}/bin:${env.PATH}"
+			def groupId = "com.companynews"
+			def artifactId = "companynews"
+			def version = "10.2.0.4.0"
+			def url = "http://localhost:9090/nexus-2.2-01/content/repositories/thirdparty/"
+			def repositoryId = "thirdparty"
+		}
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checkout'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'GIT_linux-1.9.1', submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jglick/simple-maven-project-with-tests.git']]])
+            }
+        }        
+        stage('Build') {
+            steps {
+                echo 'Building'
+                sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to dev') {
+            steps {
+                echo 'Deploying'
+                sh 'mvn clean deploy'
+            }
+        }
+		stage('dev Test') {
+            steps {
+                echo 'Testing'
+                sh 'mvn test'
+            }
+        }
+		stage('sonarqube') {
+            steps {
+                echo 'Testing'
+                sh 'mvn sonar:sonar'
+            }
+        }
+        stage('Deploy to sit') {
+            steps {
+                echo 'Deploying'
+                sh 'mvn clean deploy'
+            }
+        }
+		stage('sit Test') {
+            steps {
+                echo 'Testing'
+                sh 'mvn test'
+            }
+        }
+		stage('Approval deploy to uat') {
+            steps {
+                input 'Approve code deploy to uat?'
+            }
+        }
+		stage('Deploy to uat') {
+            steps {
+                echo 'Deploying'
+                sh 'mvn clean deploy'
+            }
+        }
+		stage('uat Test') {
+            steps {
+                echo 'Testing'
+                sh 'mvn test'
+            }
+        }
+		stage('Approval deploy to nexus') {
+            steps {
+                input 'Approve code deploy to nexus?'
+            }
+        }
+		stage('Deploy to nexus') {
+            steps {
+                echo 'Deploying'
+                sh """
+				mvn deploy:deploy-file -DgroupId=${groupId} \
+				-DartifactId=${artifactId} \
+				-Dversion=${version} \
+				-Dpackaging=war \
+				-Dfile=target/companynews.war \
+				-Durl=${url} \
+				-DrepositoryId=${repositoryId}
+			"""
+            }
+        }
+    }
+}
