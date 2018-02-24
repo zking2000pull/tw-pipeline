@@ -106,5 +106,5 @@ pipeline {
 
 
         stage('Docker Run') {
-                  sh 'docker run -it -p 10022:22 --name=webapps zhouhua/webapp:3.0'
+                  sh 'docker run -d -p 10022:22 --name=webapps zhouhua/webapp:3.0'
             }
