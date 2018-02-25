@@ -27,10 +27,11 @@ node('master') {
           sh 'docker run -d -p 12345:8080 -v /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps:/var/tmp/tomcat/apache-tomcat-7.0.85/webapps --name=webapps zhouhua/webapps:4.0'
     }
     stage('war Deployment') {
-          sh 'cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps'
+          sh '''rm -rf /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample
+                cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps'''
     }
     stage('Static Asset Deployment') {
-          sh '''cp static_asset.zip /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps
-                unzip -o /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/static_asset.zip -d /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/index.html'''
+          sh '''cp static_asset.zip /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample
+                unzip -o /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/static_asset.zip -d /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/index.html'''
     }
 }
