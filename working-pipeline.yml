@@ -44,4 +44,7 @@ node('master') {
                 unzip -o index.zip
                 sh zip_deployment.sh'''
     }
+    stage('Going to Staging Server') {
+          input 'Pipeline will going to the next step?'
+    }
 }
