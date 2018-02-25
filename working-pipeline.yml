@@ -29,6 +29,6 @@ node('master') {
     }
     stage('war Deployment') {
           sh '''rm -rf /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/*
-                cp sample.war ${webapps_home}'''
+                echo ${webapps_home}'''
     }
 }
