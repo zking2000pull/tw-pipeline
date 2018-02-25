@@ -26,6 +26,11 @@ node('master') {
     stage('Docker Run') {
           sh 'docker run -d -p 12345:8080 -v /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps:/var/tmp/tomcat/apache-tomcat-7.0.85/webapps --name=webapps zhouhua/webapps:4.0'
     }
+    stage('Code Deployment') {
+          sh '''cp /sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps
+          unzip static_asset.zip
+          cp static_asset.html /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/index.html'''
+    }
 }
 
 
