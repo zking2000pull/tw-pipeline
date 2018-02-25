@@ -124,3 +124,9 @@ pipeline {
                           colorized: true)
                       }
                 }
+
+
+                cp static_asset.zip /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps
+                          unzip -o /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/static_asset.zip -d /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample
+                          sleep 10
+                          mv /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/static_asset.html /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/index.html
