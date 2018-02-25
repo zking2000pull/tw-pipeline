@@ -1,5 +1,5 @@
 node('master') {
-    def webapps_home = /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps
+    def webapps_home = "/Users/StephenChou/Desktop/Apps/TW/Workspace/webapps"
 	stage('Workspace Cleanup') {
          deleteDir()
     }
