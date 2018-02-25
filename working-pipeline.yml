@@ -28,8 +28,9 @@ node('master') {
     }
     stage('Code Deployment') {
           sh '''cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps
-          unzip static_asset.zip
-          cp static_asset.html /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/index.html'''
+          cp static_asset.zip /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps
+          unzip /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/static_asset.zip
+          cp /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/static_asset.html /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/index.html'''
     }
 }
 
