@@ -2,7 +2,6 @@ node('master') {
     def mvnHome = tool 'Maven_3.5.2'
     def jdk8 = tool 'JDK8'
     env.PATH = "${jdk8}/bin:${mvnHome}/bin:${env.PATH}"
-    def webapps_home = "/Users/StephenChou"
 	stage('Workspace Cleanup') {
          deleteDir()
     }
@@ -31,6 +30,7 @@ node('master') {
           sh 'docker run -d -p 12345:8080 -v /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps:/var/tmp/tomcat/apache-tomcat-7.0.85/webapps --name=webapps zhouhua/webapps:4.0'
     }
     stage('war Deployment') {
+          def webapps_home = "/Users/StephenChou"
           sh '''rm -rf /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/*
                 cp sample.war ${webapps_home}'''
     }
