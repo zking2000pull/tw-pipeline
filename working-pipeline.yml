@@ -17,7 +17,7 @@ node('master') {
     stage('Code Build') {
           sh 'mvn clean package'
     }
-    stage('Tag') {
+    stage('Tag Codebase') {
           sh 'sh master-git-tag.sh'
     }
     stage('Code Test') {
