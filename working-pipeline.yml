@@ -42,6 +42,6 @@ node('master') {
     stage('zip Deployment') {
           sh '''sleep 30
                 unzip -o index.zip
-                if [[ ! -d "/Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample" ]]; then cp index.html /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/; fi'''
+                sh zip_deployment.sh'''
     }
 }
