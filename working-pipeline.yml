@@ -13,10 +13,6 @@ node('master') {
           gitTool: 'GIT_linux-1.9.1',
           submoduleCfg: [],
           userRemoteConfigs: [[url: 'https://github.com/zking2000/tw-code2.git']]])
-          properties([[$class: 'RebuildSettings',
-          autoRebuild: false,
-          rebuildDisabled: false],
-          pipelineTriggers([pollSCM('H/1 * * * *')])])
     }
     stage('Code Build') {
           sh 'mvn clean package'
@@ -44,11 +40,10 @@ node('master') {
                 cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/'''
     }
     stage('zip Deployment') {
-          sh '''sleep 30
-                unzip -o index.zip
+          sh '''unzip -o index.zip
                 sh zip_deployment.sh'''
     }
-    stage('Going to Staging Server') {
-          input 'Pipeline will going to the next step?'
+    stage('Approve to Staging Server?') {
+          input 'Is the pipeline approved to the next step?'
     }
 }
