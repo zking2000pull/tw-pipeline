@@ -1,5 +1,7 @@
 node('master') {
-    def webapps_home = "/Users/StephenChou/Desktop/Apps/TW/Workspace/webapps"
+    def mvnHome = tool 'Maven_3.5.2'
+    def jdk8 = tool 'JDK8'
+    env.PATH = "${jdk8}/bin:${mvnHome}/bin:${env.PATH}"
 	stage('Workspace Cleanup') {
          deleteDir()
     }
@@ -29,6 +31,6 @@ node('master') {
     }
     stage('war Deployment') {
           sh '''rm -rf /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/*
-                echo ${webapps_home}'''
+                cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/'''
     }
 }
