@@ -21,9 +21,9 @@ node('master') {
           sh 'mvn clean test'
     }
     stage('Static Asset package') {
-          sh 'zip -qr static_asset.zip static_asset.html'
+          sh 'zip -qr index.zip index.html'
     }
-    stage('Stop running docker') {
+    stage('Stop running webapps container') {
           sh 'docker ps | awk \'{if($13=="webapps")}{system("docker stop webapps")}\''
     }
     stage('Delete stopped webapps container') {
@@ -38,5 +38,9 @@ node('master') {
     stage('war Deployment') {
           sh '''rm -rf /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/*
                 cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/'''
+    }
+    stage('zip Deployment') {
+          sh '''cp index.zip /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/
+                unzip -o /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/index.zip'''
     }
 }
