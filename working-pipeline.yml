@@ -40,7 +40,7 @@ node('master') {
                 cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/'''
     }
     stage('zip Deployment') {
-          sh '''cp index.zip /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/
+          sh '''cp index.zip /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample
                 unzip -o /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/sample/index.zip'''
     }
 }
