@@ -1,7 +1,10 @@
 node('master') {
-    def mvnHome = tool 'Maven_3.5.2'
-    def jdk8 = tool 'JDK8'
-    env.PATH = "${jdk8}/bin:${mvnHome}/bin:${env.PATH}"
+    def mvnHome=tool 'Maven_3.5.2'
+    def jdk8=tool 'JDK8'
+    env.PATH="${jdk8}/bin:${mvnHome}/bin:${env.PATH}"
+    def folder_in_container="/var/tmp/tomcat/apache-tomcat-7.0.85/webapps"
+    def folder_in_local_host="/Users/StephenChou/Desktop/Apps/TW/Workspace/webapps"
+    def git_hub="https://github.com/zking2000/tw-code2.git"
 	stage('Workspace Cleanup') {
          deleteDir()
     }
@@ -12,19 +15,19 @@ node('master') {
           extensions: [],
           gitTool: 'GIT_linux-1.9.1',
           submoduleCfg: [],
-          userRemoteConfigs: [[url: 'https://github.com/zking2000/tw-code2.git']]])
+          userRemoteConfigs: [[url: "${git_hub}"]]])
     }
     stage('Code Build') {
-          sh 'mvn clean package'
+          sh("mvn clean package")
     }
     stage('Tag Codebase') {
-          sh 'sh master-git-tag.sh'
+          sh("sh master-git-tag.sh")
     }
     stage('Code Test') {
-          sh 'mvn clean test'
+          sh("mvn clean test")
     }
     stage('Static Asset package') {
-          sh 'zip -qr index.zip index.html'
+          sh("zip -qr index.zip index.html")
     }
     stage('Stop running dev-webapps container') {
           sh 'docker ps | awk \'{if($13=="webapps")}{system("docker stop webapps")}\''
@@ -33,18 +36,16 @@ node('master') {
           sh 'docker ps -a | grep webapps | awk \'{if($12=="webapps")}{system("docker rm webapps")}\''
     }
     stage('dev-Docker Build') {
-          sh 'docker build github.com/zking2000/dockerfile -t zhouhua/webapps:4.0'
+          sh("docker build github.com/zking2000/dockerfile -t zhouhua/webapps:4.0")
     }
     stage('dev-Docker Run') {
-          sh 'docker run -d -p 12345:8080 -v /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps:/var/tmp/tomcat/apache-tomcat-7.0.85/webapps --name=webapps zhouhua/webapps:4.0'
+          sh("docker run -d -p 12345:8080 -v \"${folder_in_local_host}\":\"${folder_in_container}\" --name=webapps zhouhua/webapps:4.0")
     }
     stage('war Deployment') {
-          sh '''rm -rf /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/*
-                cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/'''
+          sh("rm -rf \"${folder_in_local_host}\"/* && cp sample.war \"${folder_in_local_host}\"")
     }
     stage('zip Deployment') {
-          sh '''unzip -o index.zip
-                sh zip_deployment.sh'''
+          sh("unzip -o index.zip && sh zip_deployment.sh")
     }
     stage('Approve to uat Server?') {
           input 'Is the pipeline approved to the next step?'
