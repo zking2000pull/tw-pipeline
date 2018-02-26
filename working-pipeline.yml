@@ -48,6 +48,8 @@ node('master') {
           sh("unzip -o index.zip && sh zip_deployment.sh")
     }
     stage('Approve to uat Server?') {
+          timeout(time: 15, unit: 'SECONDS'){
           input 'Is the pipeline approved to the next step?'
     }
+  }
 }
