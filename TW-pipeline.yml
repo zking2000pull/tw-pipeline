@@ -1,8 +1,8 @@
 pipeline {
-    agent { node ("master")
+    agent { node { label "master"
       options {
-              buildDiscarder(logRotator(numToKeepStr: '1'))
               timestamps()
+              }
       }
     }
         stages {
