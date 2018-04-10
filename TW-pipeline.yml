@@ -2,9 +2,9 @@ pipeline {
     agent { node {
         label 'master'
         customWorkspace '/tmp/TW-pipeline'
-      options {
+    options {
         timestamps()
-      }
+    }
             }
     }
         stages {
