@@ -3,10 +3,6 @@ pipeline {
         label 'master'
         customWorkspace '/tmp/TW-pipeline'
       options {
-        buildDiscarder(logRotator(numToKeepStr: '7'))
-        disableConcurrentBuilds()
-        timeout(time: 1, unit: 'HOURS')
-        retry(3)
         timestamps()
       }
             }
