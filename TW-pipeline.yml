@@ -1,11 +1,8 @@
 pipeline {
-    agent { node {
-        label 'master'
-        customWorkspace '/tmp/TW-pipeline'
-    options {
+    agent { node ('master')
+      options {
         timestamps()
-    }
-            }
+      }
     }
         stages {
           stage('Workspace Cleanup') {
