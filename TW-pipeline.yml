@@ -1,5 +1,13 @@
 pipeline {
-    agent { node ("master") }
+    agent { node ("master")
+    }
+      opions {
+        buildDiscarder(logRotator(numToKeepStr: '7'))
+        disableConcurrentBuilds()
+        timeout(time: 1, unit: 'HOURS')
+        retry(3)
+        timestamps()
+      }
         stages {
           stage('Workspace Cleanup') {
             steps {
@@ -36,5 +44,5 @@ pipeline {
               }
             }
           }
-    }
+        }
 }
