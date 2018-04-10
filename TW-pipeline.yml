@@ -3,6 +3,11 @@ pipeline {
                     customWorkspace "/tmp/TW-pipeline"
             }
     }
+    options {
+            buildDiscarder(logRotator(numToKeepStr: '5'))
+            disableConcurrentBuilds()
+            timestamps()
+        }
         stages {
           stage('Workspace Cleanup') {
             steps {
