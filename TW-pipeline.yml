@@ -1,5 +1,9 @@
 pipeline {
     agent { node ("master")
+      options {
+              buildDiscarder(logRotator(numToKeepStr: '1'))
+              timestamps()
+      }
     }
         stages {
           stage('Workspace Cleanup') {
