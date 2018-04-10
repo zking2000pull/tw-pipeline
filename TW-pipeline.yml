@@ -2,7 +2,6 @@ pipeline {
     agent {
         label 'master'
         customWorkspace '/tmp/TW-pipeline'
-      }
       options {
         buildDiscarder(logRotator(numToKeepStr: '7'))
         disableConcurrentBuilds()
