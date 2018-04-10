@@ -26,7 +26,7 @@ pipeline {
           }
           stage('Code Deployment'){
             steps {
-                sh """
+                sh '
                 zip -qr index.zip index.html;
                 docker ps | awk \'{if($13=="webapps")}{system("docker stop webapps")}\';
                 docker ps -a | grep webapps | awk \'{if($12=="webapps")}{system("docker rm webapps")}\';
@@ -34,7 +34,7 @@ pipeline {
                 docker run -d -p 12345:8080 -v \"${folder_in_local_host}\":\"${folder_in_container}\" --name=webapps zhouhua/webapps:4.0;
                 rm -rf \"${folder_in_local_host}\"/* && cp sample.war \"${folder_in_local_host}\";
                 unzip -o index.zip && sh zip_deployment.sh
-                """
+                '
              }
           }
           stage('Approved?') {
