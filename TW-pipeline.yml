@@ -1,5 +1,5 @@
 pipeline {
-    agent {
+    agent { node {
         label 'master'
         customWorkspace '/tmp/TW-pipeline'
       options {
@@ -9,6 +9,7 @@ pipeline {
         retry(3)
         timestamps()
       }
+            }
     }
         stages {
           stage('Workspace Cleanup') {
