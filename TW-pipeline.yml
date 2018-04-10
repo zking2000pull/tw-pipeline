@@ -1,5 +1,5 @@
 pipeline {
-    agent { node ("master")
+    agent { node { label 'master' }
       opions {
         buildDiscarder(logRotator(numToKeepStr: '7'))
         disableConcurrentBuilds()
