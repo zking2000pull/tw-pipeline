@@ -42,4 +42,9 @@ pipeline {
             }
           }
         }
+        post {
+          success {
+            echo 'We may meet again!'
+          }
+        }
 }
