@@ -24,7 +24,10 @@ pipeline {
           stage('Code Build & Test') {
             steps {
              withEnv(["PATH+MAVEN_HOME=${tool 'Maven_3.5.2'}/bin"]) {
-               sh 'mvn clean package && mvn clean test'
+               sh '''
+               mvn clean package
+               mvn clean test
+               '''
               }
             }
           }
