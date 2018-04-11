@@ -12,17 +12,13 @@ pipeline {
           stage('Workspace Cleanup') {
             steps {
                deleteDir()
+               checkpoint 'Need Replay?'
             }
           }
           stage('Github Checkout') {
             steps {
-            checkout([$class: 'GitSCM',
-            branches: [[name: '*/master']],
-            doGenerateSubmoduleConfigurations: false,
-            extensions: [],
-            gitTool: 'GIT_linux-1.9.1',
-            submoduleCfg: [],
-            userRemoteConfigs: [[url: "https://github.com/zking2000/tw-code2.git"]]])
+            git url: "https://github.com/zking2000/tw-code2.git"
+            branch: "master"
             }
           }
           stage('Code Build & Test') {
