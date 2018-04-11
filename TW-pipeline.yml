@@ -16,9 +16,9 @@ pipeline {
           }
           stage('Github Checkout') {
             steps {
-            git url: 'https://github.com/zking2000/tw-code2.git'
-            git branch: 'master'
-            git credentialsId: '3eaa752d-f3d7-495f-bb1e-72ca10dd4d31'
+            git branch: 'master',
+                credentialsId: '3eaa752d-f3d7-495f-bb1e-72ca10dd4d31',
+                url: 'https://github.com/zking2000/tw-code2.git'
             }
           }
           stage('Code Build & Test') {
