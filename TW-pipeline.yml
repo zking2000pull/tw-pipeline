@@ -30,7 +30,10 @@ pipeline {
           }
           stage('Code Deployment'){
             steps {
-                sh 'zip -qr index.zip index.html && docker ps | awk \'{if($13=="webapps")}{system("docker stop webapps")}\' && docker ps -a | grep webapps | awk \'{if($12=="webapps")}{system("docker rm webapps")}\' && docker build github.com/zking2000/dockerfile -t zhouhua/webapps:4.0 && docker run -d -p 12345:8080 -v /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps:/var/tmp/tomcat/apache-tomcat-7.0.85/webapps --name=webapps zhouhua/webapps:4.0 && rm -rf /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/* && cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps && unzip -o index.zip && sh zip_deployment.sh'
+                bash '''
+                zip -qr index.zip index.html
+                docker ps | awk \'{if($13=="webapps")}{system("docker stop webapps")}\' && docker ps -a | grep webapps | awk \'{if($12=="webapps")}{system("docker rm webapps")}\' && docker build github.com/zking2000/dockerfile -t zhouhua/webapps:4.0 && docker run -d -p 12345:8080 -v /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps:/var/tmp/tomcat/apache-tomcat-7.0.85/webapps --name=webapps zhouhua/webapps:4.0 && rm -rf /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps/* && cp sample.war /Users/StephenChou/Desktop/Apps/TW/Workspace/webapps && unzip -o index.zip && sh zip_deployment.sh
+                '''
              }
           }
           stage('Approved?') {
