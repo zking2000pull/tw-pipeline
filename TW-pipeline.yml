@@ -18,7 +18,7 @@ pipeline {
             }
           }
           stage('Github Checkout') {
-            if (env.BRANCH_NAME == 'master' {
+            if (env.BRANCH_NAME == 'master') {
               steps {
               git branch: 'master',
                   credentialsId: '3eaa752d-f3d7-495f-bb1e-72ca10dd4d31',
