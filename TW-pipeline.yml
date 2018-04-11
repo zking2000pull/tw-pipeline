@@ -17,7 +17,7 @@ pipeline {
           stage('Github Checkout') {
             steps {
             git url: 'https://github.com/zking2000/tw-code2.git'
-            git branch: 'master'
+                branch: 'master'
             }
           }
           stage('Code Build & Test') {
