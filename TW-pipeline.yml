@@ -12,7 +12,6 @@ pipeline {
           stage('Workspace Cleanup') {
             steps {
                deleteDir()
-               checkpoint 'Need Replay?'
             }
           }
           stage('Github Checkout') {
