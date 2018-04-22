@@ -26,7 +26,9 @@ pipeline {
           }
           stage('Get Github Commit') {
               steps {
-                  sh 'python github_commit.py'
+                withEnv([result = sh 'python github_commit.py']) {
+                  echo $result
+                }
               }
           }
           stage('Code Build & Test') {
