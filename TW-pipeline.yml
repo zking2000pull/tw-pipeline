@@ -26,12 +26,12 @@ pipeline {
           }
           stage('Get Github Commit') {
             steps {
-              result = sh 'python github_commit.py'
                 script {
-                  if ('sha' in $result) {
-                    echo 'Yes'
-                  } else {
-                        echo 'No' }
+                  result = sh 'python github_commit.py'
+                    if ('sha' in $result) {
+                      echo 'Yes'
+                    } else {
+                          echo 'No' }
                 }
             }
           }
