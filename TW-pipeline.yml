@@ -24,6 +24,11 @@ pipeline {
                       url: 'https://github.com/zking2000/tw-code2.git'
               }
           }
+          stage('Get Github Commit') {
+              steps {
+                  sh 'python github_commit.py'
+              }
+          }
           stage('Code Build & Test') {
             steps {
              withEnv(["PATH+MAVEN_HOME=${tool 'Maven_3.5.2'}/bin"]) {
@@ -58,7 +63,7 @@ pipeline {
           }
         }
         post {
-          success {
+          always {
             echo 'We may meet again!'
           }
         }
