@@ -26,8 +26,14 @@ pipeline {
           }
           stage('Get Github Commit') {
             steps {
+              environment {
+                result = sh(script: "python github_commit.py").trim()
+              }
                 script {
-                  echo env.BRANCH_NAME
+                  if (sha in env.result) {
+                    echo 'Yes'
+                  } else {
+                    echo 'No' }
                 }
             }
           }
