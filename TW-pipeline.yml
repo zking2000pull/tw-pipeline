@@ -31,7 +31,6 @@ pipeline {
                   echo 'Yes'
                 } else {
                       echo 'No' }
-              }
             }
           }
           stage('Code Build & Test') {
