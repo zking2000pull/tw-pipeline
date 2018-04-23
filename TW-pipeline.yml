@@ -79,3 +79,8 @@ pipeline {
           }
         }
 }
+
+
+
+
+https://qa.nuxeo.org/jenkins/pipeline-syntax/globals
