@@ -27,7 +27,7 @@ pipeline {
           stage('Get Github Commit') {
             steps {
                   script {
-                    def result = python 'github_commit.py'
+                    def result = sh 'python github_commit.py'
                       if (result.contains("sha")) {
                         echo 'Yes'
                       }
