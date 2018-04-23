@@ -26,8 +26,10 @@ pipeline {
           }
           stage('Get Github Commit') {
             steps {
+              environment {
+                result = sh 'python github_commit.py'
+              }
                   script {
-                    def result = sh 'python github_commit.py'
                       if ("${result}" == null) {
                         echo 'result is null'
                         } else {
