@@ -28,6 +28,7 @@ pipeline {
             steps {
                   script {
                     def result = sh 'python github_commit.py'
+                    echo 'result | grep sha'
                       if (env.result.contains("sha")) {
                         echo 'Yes'
                       }
