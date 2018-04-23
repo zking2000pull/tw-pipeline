@@ -32,7 +32,7 @@ pipeline {
                         echo 'result is null'
                         } else {
                           echo 'result is not null'
-                          echo "${env.result}"
+                          echo "${result}"
                           }
                    }
 
