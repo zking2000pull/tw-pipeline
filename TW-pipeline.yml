@@ -27,16 +27,9 @@ pipeline {
           stage('Get Github Commit') {
             steps {
                   script {
-                    def result = sh 'python github_commit.py'
-                    echo '${result} | grep sha'
-                      if (env.result.contains("sha")) {
-                        echo 'Yes'
-                      }
-                      else
-                        {
-                        echo 'No'
-                        }
-                     }
+                    env.result = sh 'python github_commit.py'
+                    echo env.result
+
             }
           }
           stage('Code Build & Test') {
