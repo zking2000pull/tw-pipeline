@@ -28,7 +28,7 @@ pipeline {
             steps {
                   script {
                     env.result = sh 'python github_commit.py'
-                      echo ${env.result}
+                      println ${env.result}
                    }
 
             }
