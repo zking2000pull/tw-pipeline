@@ -26,17 +26,17 @@ pipeline {
           }
           stage('Get Github Commit') {
             steps {
-              def env.result = sh 'python github_commit.py' {
                   script {
+                    env.result = sh 'python github_commit.py' {
                       if (${env.result}.contains("sha")) {
                         echo 'Yes'
                       }
                       else
                         {
                         echo 'No'
-                      }
+                        }
+                     }
                   }
-               }
             }
           }
           stage('Code Build & Test') {
