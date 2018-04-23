@@ -28,7 +28,7 @@ pipeline {
             steps {
                   script {
                     result = sh 'python github_commit.py'
-                      if ("$result" == null) {
+                      if ("${result}" == null) {
                         echo 'result is null'
                         } else {
                           echo 'result is not null'
