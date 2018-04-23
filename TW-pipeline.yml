@@ -27,8 +27,8 @@ pipeline {
           stage('Get Github Commit') {
             steps {
                   script {
-                    env.result = sh 'python github_commit.py'
-                      println ${env.result}
+                    def env.result = sh 'python github_commit.py'
+                      echo "${env.result()}"
                    }
 
             }
