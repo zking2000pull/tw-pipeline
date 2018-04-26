@@ -27,11 +27,11 @@ pipeline {
           stage('Get Github Commit') {
             steps {
               script {
-                def result = sh (returnStdout: true, script: 'md5sum pom.xml').trim()
-                  if ("${result}" == null) {
-                        echo 'result is null'
+                def result = sh (returnStdout: true, script: 'date').trim()
+                  if ("${result}".contains("2018) {
+                        echo 'Yes'
                   } else {
-                        echo 'result is not null'
+                        echo 'No'
                     }
                }
 
