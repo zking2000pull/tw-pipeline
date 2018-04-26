@@ -29,13 +29,13 @@ pipeline {
               script {
                 def result = sh (returnStdout: true, script: 'date').trim()
                   when {
-                    "${result}.contains("2018")
+                    "${result}".contains("2018")
                   }
                   steps {
                     echo "Result == Yes"
                   }
                   when {
-                    "${result} !== "2018"
+                    "${result}" !== "2018"
                   }
                   steps {
                     echo "Result == No"
