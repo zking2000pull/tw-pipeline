@@ -29,7 +29,7 @@ pipeline {
               script {
                 def result = sh (returnStdout: true, script: 'date').trim()
                   if ("${result}".contains("2018")) {
-                        echo 'Yes'
+                        currentBuild.result = "UNSTABLE"
                   } else {
                         echo 'No'
                     }
