@@ -26,17 +26,14 @@ pipeline {
           }
           stage('Get Github Commit') {
             steps {
-              environment {
-                result = sh 'python github_commit.py'
-              }
-                  script {
-                      if ("${result}" == null) {
+              script {
+                def result = sh (returnStdout: true, script: 'md5sum pom.xml'）
+                  if ("${result}" == null) {
                         echo 'result is null'
-                        } else {
-                          echo 'result is not null'
-                          echo "${result}"
-                          }
-                   }
+                  } else {
+                        echo 'result is not null'
+                    }
+               }
 
             }
           }
