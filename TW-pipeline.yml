@@ -28,7 +28,7 @@ pipeline {
             steps {
               script {
                 def result = sh (returnStdout: true, script: 'date').trim()
-                  if ("${result}".contains("2018) {
+                  if ("${result}".contains("2018") {
                         echo 'Yes'
                   } else {
                         echo 'No'
