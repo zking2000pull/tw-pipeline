@@ -35,7 +35,7 @@ pipeline {
                     echo "Result == Yes"
                   }
                   when {
-                    "${result}" !== "2018"
+                    "${result}" == "2018"
                   }
                   steps {
                     echo "Result == No"
