@@ -28,27 +28,20 @@ pipeline {
             steps {
               script {
                 def result = sh (returnStdout: true, script: 'date').trim()
-                  if ("${result}".contains("2018")) {
-                    stage 'Result == Yes'
-                    build 'Result == Yes'
-                  } else {
-                    stage 'Result == No'
-                    build 'Result == No'
-                    }
+                  when {
+                    "${result}.contains("2018")
+                  }
+                  steps {
+                    echo "Result == Yes"
+                  }
+                  when {
+                    "${result} !== "2018"
+                  }
+                  steps {
+                    echo "Result == No"
+                  }
                }
-
             }
           }
-          stage('Result == Yes') {
-              steps {
-                  echo 'Result == Yes'
-              }
-          }
-          stage('Result == No') {
-              steps {
-                  echo 'Result == No'
-              }
-          }
-
         }
 }
