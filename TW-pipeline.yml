@@ -47,17 +47,6 @@ pipeline {
                   echo 'Result == No'
               }
           }
-          stage('Approved?') {
-            steps {
-              timeout(time: 15, unit: 'MINUTES'){
-              input 'Is the pipeline approved to the next step?'
-              }
-            }
-          }
-        }
-        post {
-          always {
-            echo 'We may meet again!'
-          }
+
         }
 }
