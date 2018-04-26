@@ -29,9 +29,11 @@ pipeline {
               script {
                 def result = sh (returnStdout: true, script: 'date').trim()
                   if ("${result}".contains("2018")) {
-                    stage 'Result == No'
-                  } else {
                     stage 'Result == Yes'
+                    build 'Result == Yes'
+                  } else {
+                    stage 'Result == No'
+                    build 'Result == No'
                     }
                }
 
