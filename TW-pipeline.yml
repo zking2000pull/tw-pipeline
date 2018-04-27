@@ -58,7 +58,7 @@ pipeline {
           }
           steps {
               timeout(time: 1, unit: 'MINUTES') {
-                  input message: 'This stage will delay for 1 minute', submitter: 'admin
+                  input message: 'This stage will delay for 1 minute', submitter: 'admin'
               }
           }
         }
