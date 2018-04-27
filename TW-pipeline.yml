@@ -9,6 +9,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()
         timestamps()
+        skipDefaultCheckout()
     }
     triggers {
         cron('H */1 * * 1-5')
@@ -17,6 +18,12 @@ pipeline {
         stage('Workspace Cleanup') {
             steps {
                 deleteDir()
+            }
+        }
+    stages {
+        stage('Tools Preparation') {
+            steps {
+                checkout scm
             }
         }
         stage('Github Checkout') {
@@ -84,5 +91,3 @@ pipeline {
         }
     }
 }
-
-

@@ -9,6 +9,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()
         timestamps()
+        skipDefaultCheckout()
     }
     triggers {
         cron('H */1 * * 1-5')
@@ -17,6 +18,12 @@ pipeline {
         stage('Workspace Cleanup') {
             steps {
                 deleteDir()
+            }
+        }
+    stages {
+        stage('Tools Preparation') {
+            steps {
+                checkout scm
             }
         }
         stage('Github Checkout') {
@@ -47,7 +54,7 @@ pipeline {
           steps {
                timeout(time: 5, unit: 'MINUTES') {
                   script {
-                      myStage = input message: 'How long you want to wait', submitter: 'submitter', parameters: [choice(choices: '1Min\n2Mins\n3Mins', description: '', name: 'Minutes')]
+                      myStage = input message: 'How long you want to wait', submitter: 'admin', parameters: [choice(choices: '1Min\n2Mins\n3Mins', description: '', name: 'Minutes')]
                   }
               }
           }
