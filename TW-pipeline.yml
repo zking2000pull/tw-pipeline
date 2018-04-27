@@ -58,7 +58,7 @@ pipeline {
           }
           steps {
               timeout(time: 1, unit: 'MINUTES') {
-                  input message: 'This stage will delay for 1 minute', submitter: 'admin'
+                  input message: 'This stage will delay for 1 minute', submitter: 'Admin'
               }
           }
         }
@@ -68,7 +68,7 @@ pipeline {
           }
           steps {
               timeout(time: 2, unit: 'MINUTES') {
-                  input message: 'This stage will delay for 2 minutes', submitter: 'admin'
+                  input message: 'This stage will delay for 2 minutes', submitter: 'Admin'
               }
           }
         }
@@ -78,7 +78,7 @@ pipeline {
           }
           steps {
               timeout(time: 3, unit: 'MINUTES') {
-                  input message: 'This stage will delay for 3 minutes', submitter: 'admin'
+                  input message: 'This stage will delay for 3 minutes', submitter: 'Admin'
               }
           }
         }
