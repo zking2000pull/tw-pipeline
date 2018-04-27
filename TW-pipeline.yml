@@ -26,11 +26,11 @@ pipeline {
                 url: 'https://github.com/zking2000/tw-code2.git'
             }
         }
-        stage('Get Github Commit') {
+        stage('Checking and Selection') {
             steps {
                 script {
                     def result = sh (returnStdout: true, script: 'date').trim()
-                        if ("${result}".contains("2019")) {
+                        if ("${result}".contains("2018")) {
                             stage('2018 in the result') {
                                 echo '2018 in the result'
                             }
