@@ -20,13 +20,11 @@ pipeline {
                 deleteDir()
             }
         }
-    stage {
         stage('Tools Preparation') {
             steps {
                 checkout scm
             }
         }
-    }
         stage('Github Checkout') {
             steps {
                 git branch: 'master',
@@ -92,5 +90,3 @@ pipeline {
         }
     }
 }
-
-
