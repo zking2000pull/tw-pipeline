@@ -1,11 +1,11 @@
 steps {
-  def output = sh(returnStdout: true, script: 'md5sum package.json | awk \'{print $1}\'').trim()
   script {
-    if () {
-      stage('stage name1') {}
-    } else {
-      stage('stage name2') {}
-    }
+    def output = sh(returnStdout: true, script: 'md5sum package.json | awk \'{print $1}\'').trim()
+        if () {
+          stage('stage name1') {}
+        } else {
+          stage('stage name2') {}
+        }
   }
 }
 

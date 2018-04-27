@@ -43,6 +43,45 @@ pipeline {
                 }
             }
         }
+        stage('Approve to the next level?') {
+          steps {
+               timeout(time: 5, unit: 'MINUTES') {
+                  script {
+                      myStage = input message: 'How long you want to wait', submitter: 'submitter', parameters: [choice(choices: '1Min\n2Mins\n3Mins', description: '', name: 'Minutes')]
+                  }
+              }
+          }
+        }
+        stage('1Min') {
+          when {
+              expression {myStage == "1Min"}
+          }
+          steps {
+              timeout(time: 1, unit: 'MINUTES') {
+                  input message: 'This stage will delay for 1 minute', submitter: 'admin'
+              }
+          }
+        }
+        stage('2Mins') {
+          when {
+              expression {myStage == "2Mins"}
+          }
+          steps {
+              timeout(time: 2, unit: 'MINUTES') {
+                  input message: 'This stage will delay for 2 minutes', submitter: 'admin'
+              }
+          }
+        }
+        stage('3Mins') {
+          when {
+              expression {myStage == "3Mins"}
+          }
+          steps {
+              timeout(time: 3, unit: 'MINUTES') {
+                  input message: 'This stage will delay for 3 minutes', submitter: 'admin'
+              }
+          }
+        }
     }
 }
 
