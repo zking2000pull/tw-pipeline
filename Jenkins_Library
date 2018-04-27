@@ -44,6 +44,14 @@ stage('1Min') {
 
 ****************************
 
+options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+    disableConcurrentBuilds()
+    timestamps()
+    skipDefaultCheckout()
+}
+
+****************************
 
 
 
