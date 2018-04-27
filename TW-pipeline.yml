@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     def result = sh (returnStdout: true, script: 'date').trim()
-                        if ("${result}".contains("2018")) {
+                        if ("${result}".contains("2019")) {
                             stage('2018 in the result') {
                                 echo '2018 in the result'
                             }
