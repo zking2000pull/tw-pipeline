@@ -33,15 +33,17 @@ pipeline {
                         if ("${result}".contains("2018")) {
                             stage('2018 in the result') {
                                 echo '2018 in the result'
-                            } else {
+                            }
+                        }
+                        else {
                             stage('2018 not in the result') {
                                 echo '2018 is not in the result'
                             }
-                               }
                         }
                     }
             }
         }
     }
 }
+
 
