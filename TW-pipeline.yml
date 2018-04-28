@@ -38,7 +38,7 @@ pipeline {
                     def result = sh (returnStdout: true, script: 'date').trim()
                         if ("${result}".contains("2018")) {
                             stage('2018 in the result') {
-                                echo '2018 in the result'
+                                sh 'printenv'
                             }
                         }
                         else {

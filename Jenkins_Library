@@ -53,8 +53,26 @@ options {
 
 ****************************
 
+stage('Tools Preparation') {
+    steps {
+        checkout scm
+    }
+}
 
+****************************
 
+The simple answer is, Agent is for declarative pipelines and node is for scripted pipelines.
+
+In declarative pipelines the agent directive is used for specifying which agent/slave the job/task is to be executed on. This directive only allows you to specify where the task is to be executed, which agent, slave, label or docker image.
+
+On the other hand, in scripted pipelines the node step can be used for executing a script/step on a specific agent, label, slave. The node step optionally takes the agent or label name and then a closure with code that is to be executed on that node.
+
+declarative and scripted pipelines (edit based on the comment):
+
+declarative pipelines is a new extension of the pipeline DSL (it is basically a pipeline script with only one step, a pipeline step with arguments (called directives), these directives should follow a specific syntax. The point of this new format is that it is more strict and therefore should be easier for those new to pipelines, allow for graphical editing and much more.
+scripted pipelines is the fallback for advanced requirements.
+
+****************************
 
 
 
