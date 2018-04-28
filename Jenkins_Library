@@ -74,5 +74,60 @@ scripted pipelines is the fallback for advanced requirements.
 
 ****************************
 
+23:02:37 + printenv
+23:02:37 JENKINS_NODE_COOKIE=b54d879c-26ce-4076-b3af-43464ce6d4c0
+23:02:37 BUILD_URL=http://localhost:8080/job/ThoughtWorks_Pipeline/216/
+23:02:37 TERM_PROGRAM=Apple_Terminal
+23:02:37 SHELL=/bin/bash
+23:02:37 TERM=ansi
+23:02:37 HUDSON_SERVER_COOKIE=0de75bfbaba4fa3b
+23:02:37 STAGE_NAME=2018 in the result
+23:02:37 TMPDIR=/var/folders/jp/s0fbpt254qs93ypz21xhvrsc0000gn/T/
+23:02:37 BUILD_TAG=jenkins-ThoughtWorks_Pipeline-216
+23:02:37 Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.4lR5XpSXE5/Render
+23:02:37 TERM_PROGRAM_VERSION=404
+23:02:37 TERM_SESSION_ID=CDE31E42-C7FF-457D-A1DB-CD2C2A96F672
+23:02:37 SDKMAN_PLATFORM=Darwin
+23:02:37 JOB_URL=http://localhost:8080/job/ThoughtWorks_Pipeline/
+23:02:37 SDKMAN_CURRENT_API=https://api.sdkman.io/2
+23:02:37 WORKSPACE=/tmp/TW-pipeline
+23:02:37 RUN_CHANGES_DISPLAY_URL=http://localhost:8080/job/ThoughtWorks_Pipeline/216/display/redirect?page=changes
+23:02:37 JAVA_MAIN_CLASS_1125=Main
+23:02:37 USER=StephenChou
+23:02:37 SDKMAN_LEGACY_API=https://api.sdkman.io/1
+23:02:37 SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.F1uajtB8U5/Listeners
+23:02:37 __CF_USER_TEXT_ENCODING=0x1F5:0x19:0x34
+23:02:37 JENKINS_HOME=/Users/StephenChou/.jenkins
+23:02:37 PATH=/Users/StephenChou/.sdkman/candidates/maven/current/bin:/Users/StephenChou/.sdkman/candidates/java/current/bin:/Users/StephenChou/.sdkman/candidates/groovy/current/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/StephenChou/.sdkman/candidates/maven/3.5.2/bin
+23:02:37 MAVEN_HOME=/Users/StephenChou/.sdkman/candidates/maven/current
+23:02:37 RUN_DISPLAY_URL=http://localhost:8080/job/ThoughtWorks_Pipeline/216/display/redirect
+23:02:37 _=/usr/bin/printenv
+23:02:37 PWD=/private/tmp/TW-pipeline
+23:02:37 JAVA_HOME=/Users/StephenChou/.sdkman/candidates/java/current
+23:02:37 HUDSON_URL=http://localhost:8080/
+23:02:37 LANG=zh_CN.UTF-8
+23:02:37 SDKMAN_VERSION=5.5.13+272
+23:02:37 JOB_NAME=ThoughtWorks_Pipeline
+23:02:37 XPC_FLAGS=0x0
+23:02:37 BUILD_DISPLAY_NAME=#216
+23:02:37 JENKINS_URL=http://localhost:8080/
+23:02:37 BUILD_ID=216
+23:02:37 XPC_SERVICE_NAME=0
+23:02:37 JOB_BASE_NAME=ThoughtWorks_Pipeline
+23:02:37 SHLVL=3
+23:02:37 HOME=/Users/StephenChou
+23:02:37 EXECUTOR_NUMBER=1
+23:02:37 JENKINS_SERVER_COOKIE=durable-a48298eb4326529f5341ea286a9f574c
+23:02:37 NODE_LABELS=master
+23:02:37 LOGNAME=StephenChou
+23:02:37 SDKMAN_DIR=/Users/StephenChou/.sdkman
+23:02:37 GROOVY_HOME=/Users/StephenChou/.sdkman/candidates/groovy/current
+23:02:37 HUDSON_HOME=/Users/StephenChou/.jenkins
+23:02:37 NODE_NAME=master
+23:02:37 JOB_DISPLAY_URL=http://localhost:8080/job/ThoughtWorks_Pipeline/display/redirect
+23:02:37 BUILD_NUMBER=216
+23:02:37 SDKMAN_CANDIDATES_DIR=/Users/StephenChou/.sdkman/candidates
+23:02:37 HUDSON_COOKIE=27250150-e700-45cd-967d-16446e11ea70
+23:02:37 DISPLAY=/private/tmp/com.apple.launchd.o9ult69IGP/org.macosforge.xquartz:0
 
 
