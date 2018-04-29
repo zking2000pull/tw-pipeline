@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b54d3e9c-fdf3-4a59-9223-328a42a87964" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Jenkins_Library" afterPath="$PROJECT_DIR$/Jenkins_Library" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TW-pipeline.yml" afterPath="$PROJECT_DIR$/TW-pipeline.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aboundent" afterPath="$PROJECT_DIR$/aboundent" />
     </list>
@@ -16,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TW-pipeline.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TW-pipeline.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TW-pipeline.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="691">
@@ -26,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aboundent" pinned="false" current-in-tab="true">
+      <file leaf-file-name="aboundent" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aboundent">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
-              <caret line="114" column="1" lean-forward="false" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+            <state relative-caret-position="217">
+              <caret line="61" column="59" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="114" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -76,8 +75,8 @@
         <option value="$PROJECT_DIR$/pipeline2.yml" />
         <option value="$PROJECT_DIR$/working-pipeline.yml" />
         <option value="$PROJECT_DIR$/Jenkins_Library" />
-        <option value="$PROJECT_DIR$/TW-pipeline.yml" />
         <option value="$PROJECT_DIR$/aboundent" />
+        <option value="$PROJECT_DIR$/TW-pipeline.yml" />
       </list>
     </option>
   </component>
@@ -226,13 +225,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1519409591427</updated>
-    </task>
-    <task id="LOCAL-00134" summary="modify">
-      <created>1524520129037</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1524520129037</updated>
     </task>
     <task id="LOCAL-00135" summary="modify">
       <created>1524520193868</created>
@@ -570,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524972342321</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="modify">
+      <created>1524974096755</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1524974096755</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -968,17 +967,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TW-pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/aboundent">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
-          <caret line="114" column="1" lean-forward="false" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        <state relative-caret-position="217">
+          <caret line="61" column="59" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="114" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aboundent">
+    <entry file="file://$PROJECT_DIR$/TW-pipeline.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
+        <state relative-caret-position="691">
           <caret line="114" column="1" lean-forward="false" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
           <folding />
         </state>
