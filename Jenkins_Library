@@ -188,5 +188,20 @@ __CF_USER_TEXT_ENCODING=0x1F5:0x19:0x34
 
 ****************************
 
+stage('try..catch') {
+    steps {
+        script {
+            try {
+                sh 'exit 1'
+            }
+            catch  (e) {
+                echo 'Try..Catch is working now'
+            }
+        }
+    }
+}
+
+****************************
+
 
 
