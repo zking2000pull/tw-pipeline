@@ -51,7 +51,7 @@ pipeline {
         stage('Password Trial') {
             steps {
                 wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: 'Xiaoxian0910', var: 'SECRET']]]) {
-                    echo env['SECRET'];
+                    echo "Xiaoxian0910";
                 }
             }
         }

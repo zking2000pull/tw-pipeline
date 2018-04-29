@@ -4,7 +4,6 @@
     <list default="true" id="b54d3e9c-fdf3-4a59-9223-328a42a87964" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TW-pipeline.yml" afterPath="$PROJECT_DIR$/TW-pipeline.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aboundent" afterPath="$PROJECT_DIR$/aboundent" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="TW-pipeline.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TW-pipeline.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="114" column="1" lean-forward="false" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+            <state relative-caret-position="458">
+              <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -225,13 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1519409591427</updated>
-    </task>
-    <task id="LOCAL-00137" summary="modify">
-      <created>1524520540529</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1524520540529</updated>
     </task>
     <task id="LOCAL-00138" summary="modify">
       <created>1524520808600</created>
@@ -569,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524974323085</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="modify">
+      <created>1524974502766</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1524974502766</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -977,8 +976,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TW-pipeline.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="114" column="1" lean-forward="false" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        <state relative-caret-position="458">
+          <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
           <folding />
         </state>
       </provider>
