@@ -51,7 +51,7 @@ pipeline {
         stage('Password Trial') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'd3e939c1-0600-4a3b-887b-5cf1476169f0', variable: 'password1', variable: 'username1')]) {
+                    withCredentials([string(credentialsId: 'd3e939c1-0600-4a3b-887b-5cf1476169f0', variable: 'username1:password1')]) {
                          echo "My password is '${password1}' and My username is '${username1}'!"
                     }
                 }
