@@ -192,10 +192,14 @@ stage('try..catch') {
     steps {
         script {
             try {
-                sh 'exit 1'
+                stage('Try...Catch..Start') {
+                    sh 'exit 1'
+                }
             }
             catch  (e) {
+                stage('Try...Catch..Finish') {
                 echo 'Try..Catch is working now'
+                }
             }
         }
     }
