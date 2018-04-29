@@ -50,8 +50,8 @@ pipeline {
         }
         stage('Password Trial') {
             steps {
-                withCredentials([string(credentialsId: 'Xiaoxian0910', variable: 'PW1')]) {
-                    echo "My password is '${PW1}'"
+                wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: 'Xiaoxian0910', var: 'SECRET']]]) {
+                    echo env['SECRET'];
                 }
             }
         }
