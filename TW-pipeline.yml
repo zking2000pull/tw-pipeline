@@ -32,13 +32,25 @@ pipeline {
                 url: 'https://github.com/zking2000/tw-code2.git'
             }
         }
+        stage('try..catch') {
+            steps {
+                script {
+                    try {
+                        sh 'exit 1'
+                    }
+                    catch  (e) {
+                        echo 'Try..Catch is working now'
+                    }
+                }
+            }
+        }
         stage('Get Github Commit') {
             steps {
                 script {
                     def result = sh (returnStdout: true, script: 'date').trim()
                         if ("${result}".contains("2018")) {
                             stage('2018 in the result') {
-                                echo sh(script: 'env|sort', returnStdout: true)
+                                echo '2018 in the result'
                             }
                         }
                         else {
@@ -90,3 +102,5 @@ pipeline {
         }
     }
 }
+
+
