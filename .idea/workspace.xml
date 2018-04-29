@@ -18,8 +18,8 @@
       <file leaf-file-name="TW-pipeline.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TW-pipeline.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="121" column="1" lean-forward="false" selection-start-line="121" selection-start-column="1" selection-end-line="121" selection-end-column="1" />
+            <state relative-caret-position="520">
+              <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -28,8 +28,8 @@
       <file leaf-file-name="aboundent" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aboundent">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="62" column="13" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="121" selection-end-column="1" />
+            <state relative-caret-position="424">
+              <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -75,8 +75,8 @@
         <option value="$PROJECT_DIR$/pipeline2.yml" />
         <option value="$PROJECT_DIR$/working-pipeline.yml" />
         <option value="$PROJECT_DIR$/Jenkins_Library" />
-        <option value="$PROJECT_DIR$/aboundent" />
         <option value="$PROJECT_DIR$/TW-pipeline.yml" />
+        <option value="$PROJECT_DIR$/aboundent" />
       </list>
     </option>
   </component>
@@ -225,13 +225,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1519409591427</updated>
-    </task>
-    <task id="LOCAL-00139" summary="modify">
-      <created>1524520881475</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1524520881475</updated>
     </task>
     <task id="LOCAL-00140" summary="modify">
       <created>1524520968278</created>
@@ -569,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524974672026</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="modify">
+      <created>1524974928435</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1524974928435</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -969,16 +969,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/aboundent">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="62" column="13" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="121" selection-end-column="1" />
+        <state relative-caret-position="424">
+          <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TW-pipeline.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="121" column="1" lean-forward="false" selection-start-line="121" selection-start-column="1" selection-end-line="121" selection-end-column="1" />
+        <state relative-caret-position="520">
+          <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
           <folding />
         </state>
       </provider>

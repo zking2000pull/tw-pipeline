@@ -52,7 +52,7 @@ pipeline {
             steps {
                 script {
                     wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: 'Xiaoxian0910', var: 'SECRET']]]) {
-                        if ("${SECRT}" == "Xiaoxian0910") {
+                        if ("${SECRET}" == "Xiaoxian0910") {
                             echo 'password is correct'
                         }
                         else {
