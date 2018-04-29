@@ -48,15 +48,6 @@ pipeline {
                 }
             }
         }
-        stage('Password Trial') {
-            steps {
-                script {
-                    withCredentials([string(credentialsId: 'admin', variable: 'username1:password1')]) {
-                         echo "My password is '${password1}' and My username is '${username1}'!"
-                    }
-                }
-            }
-        }
         stage('Get Github Commit') {
             steps {
                 script {
