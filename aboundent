@@ -50,7 +50,7 @@ pipeline {
         }
         stage('Password Trial') {
             steps {
-                withCredentials([string(credentialsId: 'd3e939c1-0600-4a3b-887b-5cf1476169f0', variable: 'PW1')]) {
+                withCredentials([string(credentialsId: 'Xiaoxian0910', variable: 'PW1')]) {
                     echo "My password is '${PW1}'"
                 }
             }
