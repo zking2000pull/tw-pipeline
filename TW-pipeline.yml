@@ -5,6 +5,10 @@ pipeline {
             customWorkspace "/tmp/TW-pipeline"
         }
     }
+    environment {       #This parameter is used for defining env variables.
+        PCF_space='sit'
+        NOTIFICATION_RECIPIENTS='3065482@qq.com'
+    }
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()
@@ -13,16 +17,28 @@ pipeline {
     }
     triggers {
         cron('H */1 * * 1-5')
+        pollSCM('* * * * 1-5)
+        githubPush()
     }
     stages {
         stage('Workspace Cleanup') {
             steps {
+                checkpoint 'Need Replay?'  #This parameter only available for cloudbees Jenkins
                 deleteDir()
             }
         }
         stage('Tools Preparation') {
             steps {
                 checkout scm
+            }
+        }
+        stage('Email Notify') {
+            steps {
+                emailext (
+                  subject: "STARTED '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                  body: """Check console output at ${env.BUILD_URL}""",
+                  to: "${env.NOTIFICATION_RECIPIENTS}"    #Here calls env variables which is defined above
+                )
             }
         }
         stage('Github Checkout') {
@@ -51,7 +67,7 @@ pipeline {
         stage('Get Github Commit') {
             steps {
                 script {
-                    def result = sh (returnStdout: true, script: 'date').trim()
+                    def result = sh (returnStdout: true, script: 'date').trim()   #This is used for define an variable via execute an shell command.
                         if ("${result}".contains("2018")) {
                             stage('2018 in the result') {
                                 echo '2018 in the result'
@@ -101,6 +117,17 @@ pipeline {
           steps {
               timeout(time: 3, unit: 'MINUTES') {
                   input message: 'This stage will delay for 3 minutes', submitter: 'admin'
+              }
+          }
+        }
+        stage('commit git Audit') {
+          steps {
+              script {
+                def commitId = sh(returnstdout: true, script: 'git rev-parse HEAD').trim
+                    sh """
+                        echo "current git branch latest commit id = "$commitId:
+                          git show $commitId
+                        """
               }
           }
         }

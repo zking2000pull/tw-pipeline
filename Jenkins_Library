@@ -13,6 +13,21 @@ steps {
 
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "CredentialId", passwordVariable: 'USERPASS', usernameVariable: 'USERNAME']]) {
   withEnv(["PATH+NODEJS=${tool '6.9.5_NodeJS_Linux'}/bin"]) {
+        sh """
+            echo $USERPASS $USERNAME
+            """
+  }
+}
+
+****************************
+
+****************************
+
+withCredentials([[$class: 'UsernamePasswordBinding', credentialsId: "CredentialId", variable: "Iqscan"]]) {
+  withEnv(["PATH+NODEJS=${tool '6.9.5_NodeJS_Linux'}/bin"]) {
+        sh """
+            echo $Iqscan
+            """
   }
 }
 
